@@ -1,4 +1,4 @@
-package fp.ch2.ex1;
+package fp.ch2.ex2;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
