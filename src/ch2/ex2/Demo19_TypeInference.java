@@ -1,4 +1,4 @@
-package fp.ch2.ex2;
+package ch2.ex2;
 
 public class Demo19_TypeInference {
 	

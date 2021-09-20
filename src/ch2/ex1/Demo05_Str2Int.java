@@ -1,26 +1,26 @@
-package fp.ch2.ex1;
+package ch2.ex1;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 
-public class Demo06_FnAsResult {
+public class Demo05_Str2Int {
 
 	public static void main(String[] args) {
 		List<String> numberString = Arrays.asList("12", "34", "82");
 		List<Integer> numbers = new ArrayList<>();
 		List<Integer> doubleNumbers = new ArrayList<>();
 		
-		// conventional way
+		// Conventional way
 		for (String num : numberString) {
 			numbers.add(Integer.parseInt(num));
 		}
 		
-		// stream way
+		// Stream way
 		numbers.clear();
 		numberString.forEach(
-				ns -> numbers.add( Integer.parseInt(ns) ));
+				ns -> numbers.add(Integer.parseInt(ns)));
 		
 		numbers.clear();
 		Function<List<String>, List<Integer>> singleFunction = s -> {
@@ -35,13 +35,16 @@ public class Demo06_FnAsResult {
 			return doubleNumbers;
 		};
 		
+		// Invocation
 		System.out.println(singleFunction.apply(numberString));
 		System.out.println(doubleFunction.apply(numberString));
 		
+		
+		// Pass a function to a method
 		doubleNumbers.clear();
 		Arrays.asList(numberString).stream()
 			.map(doubleFunction)
-			.forEach(System.out::println);
+			.forEach(System.out::println);;
 	}
 	
 }

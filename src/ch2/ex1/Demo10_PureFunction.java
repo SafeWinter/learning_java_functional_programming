@@ -1,4 +1,4 @@
-package fp.ch2.ex1;
+package ch2.ex1;
 
 import java.util.function.Function;
 

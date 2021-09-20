@@ -1,4 +1,4 @@
-package fp.ch2.ex2;
+package ch2.ex2;
 
 import java.util.HashMap;
 import java.util.Map;
