@@ -1,4 +1,4 @@
-package ch3.ex2;
+package ch3.ex3;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

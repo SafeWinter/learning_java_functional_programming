@@ -1,4 +1,4 @@
-package ch3.ex2;
+package ch3.ex3;
 
 public class Demo15_MultipleInheritance implements FirstBaseInterface, SecondBaseInterface {
     
