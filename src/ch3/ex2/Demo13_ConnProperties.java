@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
-import java.util.Random;
 
 public class Demo13_ConnProperties {
 	
@@ -12,10 +11,11 @@ public class Demo13_ConnProperties {
 	private static String serverName = "localhost";
 	private static int portNumber = 1521;
     
-    public static void main(String[] args) throws SQLException {
+    @SuppressWarnings("unused")
+	public static void main(String[] args) throws SQLException {
         
     	ConnectionProperties cp = new ConnectionProperties()
-        		.username("user")
+        		.user("user")
         		.password("password");
         
         Connection conn = DriverManager.getConnection(
@@ -27,11 +27,15 @@ public class Demo13_ConnProperties {
 
 class ConnectionProperties {
 	
+	@SuppressWarnings("unused")
 	private String user;
+	
+	@SuppressWarnings("unused")
 	private String password;
+	
 	private Properties properties = new Properties();
 	
-	public ConnectionProperties username(String user) {
+	public ConnectionProperties user(String user) {
 		this.user = user;
 		this.properties.setProperty("user", user);
 		return this;
