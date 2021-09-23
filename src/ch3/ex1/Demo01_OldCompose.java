@@ -5,13 +5,13 @@ import ch3.ex1.Compose.ComposeFunction;
 public class Demo01_OldCompose {
 
     public static void main(String[] args) {
-        ComposeFunction<Double, Double> by2 = new ComposeFunction<>() {
+        ComposeFunction<Double, Double> by2 = new ComposeFunction<Double, Double>() {
             @Override
             public Double call(Double d) {
                 return d * 2;
             }
         };
-        ComposeFunction<Double, Double> negate = new ComposeFunction<>() {
+        ComposeFunction<Double, Double> negate = new ComposeFunction<Double, Double>() {
             @Override
             public Double call(Double d) {
                 return -d;
