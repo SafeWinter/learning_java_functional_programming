@@ -5,6 +5,10 @@ import java.util.stream.Stream;
 
 public class Demo04_RandomText_Sentences {
 	
+	private static String[] subject = {"cat", "dog", "monkey", "bat"};
+	private static String[] verb = {"chased", "ate", "lost", "swatted"};
+	private static String[] object = {"ball", "rat", "doughnut", "tamale"};
+	
 	public static void main(String[] args) {
 		
 		randomSentences();
@@ -15,9 +19,6 @@ public class Demo04_RandomText_Sentences {
 	}
 
 	private static void randomSentencesWithSeed() {
-		String[] subject = {"cat", "dog", "monkey", "bat"};
-	    String[] verb = {"chased", "ate", "lost", "swatted"};
-	    String[] object = {"ball", "rat", "doughnut", "tamale"};
 	    
 	    Random random = new Random();
 	    
@@ -36,14 +37,10 @@ public class Demo04_RandomText_Sentences {
 	}
 
 	private static void randomSentences() {
-		String[] subject = {"cat", "dog", "monkey", "bat"};
-	    String[] verb = {"chased", "ate", "lost", "swatted"};
-	    String[] object = {"ball", "rat", "doughnut", "tamale"};
 	    
 	    Random random = new Random();
 	    
-	    String seed = "";
-	    Stream.iterate(seed, s -> String.format("%s %s the %s", 
+	    Stream.iterate("", s -> String.format("%s %s the %s", 
 	    		subject[random.nextInt(3)], 
 	    		verb[random.nextInt(3)],
 	    		object[random.nextInt(3)])
