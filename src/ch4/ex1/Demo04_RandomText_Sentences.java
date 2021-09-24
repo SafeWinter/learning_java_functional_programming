@@ -1,7 +1,6 @@
 package ch4.ex1;
 
 import java.util.Random;
-import java.util.Scanner;
 import java.util.stream.Stream;
 
 public class Demo04_RandomText_Sentences {

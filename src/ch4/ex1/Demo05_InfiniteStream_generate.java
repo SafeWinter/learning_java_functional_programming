@@ -12,6 +12,7 @@ public class Demo05_InfiniteStream_generate {
 		return number++;
 	}
 	
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		
 		// Demo1: generate several 0s
