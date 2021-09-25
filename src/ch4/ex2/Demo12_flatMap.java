@@ -3,19 +3,9 @@ package ch4.ex2;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 public class Demo12_flatMap {
-    
-    private static Rectangle3[] getRectangles() {
-        return new Rectangle3[] {
-            new Rectangle3(10, 10, 50, 75),
-            new Rectangle3(30, 40, 30, 45),
-            new Rectangle3(110, 70, 70, 15),
-            new Rectangle3(50, 10, 45, 35)
-        };
-    }
 
     public static void main(String[] args) {
         // concat demo
