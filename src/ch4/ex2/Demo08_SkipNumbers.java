@@ -12,8 +12,14 @@ public class Demo08_SkipNumbers {
                 .stream(numbers)
                 .skip(5)
                 .summaryStatistics();
-        
-        System.out.printf("Average: %02f\nCount: %d\nMin: %d\nMax: %d\nSum: %d", 
-                status.getAverage(), status.getMin(), status.getMax(), status.getSum());
+        System.out.printf("Average: %.1f\nCount: %d\nMin: %d\nMax: %d\nSum: %d", 
+                status.getAverage(), status.getCount(), status.getMin(), status.getMax(), status.getSum());
+        /*
+        Average: 5.0
+        Count: 9
+        Min: 3
+        Max: 9
+        Sum: 45
+        */
     }
 }
