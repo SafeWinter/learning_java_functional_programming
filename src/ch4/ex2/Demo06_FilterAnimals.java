@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class Demo06_filter {
+public class Demo06_FilterAnimals {
 
     public static void main(String[] args) {
         String[] animals = {"cats", "dog", "ox", "bats", "horses", "mule"};
