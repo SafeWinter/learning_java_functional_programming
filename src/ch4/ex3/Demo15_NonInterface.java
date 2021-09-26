@@ -8,31 +8,17 @@ import java.util.stream.Stream;
 
 public class Demo15_NonInterface {
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public static void main(String[] args) {
-        // demoWithError();
-        domoCorrectOne();
+        List<Integer> list = getData();
+        // Correct version
+        printList(new CopyOnWriteArrayList(list));        
+        // Error version
+        printList(new ArrayList(list));
     }
 
-    private static void domoCorrectOne() {
-        CopyOnWriteArrayList<Integer> concurrentHours = new CopyOnWriteArrayList(Arrays.asList(32, 40, 54, 23, 35, 48,
-                40, 40, 23, 54, 45, 44, 45, 65, 34, 35, 42, 42, 50, 45, 35, 45, 35, 31, 12, 56));
-        Stream<Integer> hoursStream;
-        hoursStream = concurrentHours.parallelStream();
-        int totalHours = hoursStream.map(h -> {
-            int amount = h * 30;
-            if (amount > 40) {
-                concurrentHours.add(h + 10);
-            }
-            return amount;
-        }).reduce(0, (r, s) -> r + s);
-        System.out.println(totalHours);
-    }
-
-    private static void demoWithError() {
-        List<Integer> hours = new ArrayList(Arrays.asList(32, 40, 54, 23, 35, 48, 40, 40, 23, 54, 45, 44, 45, 65, 34,
-                35, 42, 42, 50, 45, 35, 45, 35, 31, 12, 56));
-        Stream<Integer> hoursStream;
-        hoursStream = hours.parallelStream();
+    private static void printList(List<Integer> hours) {
+        Stream<Integer> hoursStream = hours.parallelStream();
         int totalHours = hoursStream.map(h -> {
             int amount = h * 30;
             if (amount > 40) {
@@ -41,5 +27,10 @@ public class Demo15_NonInterface {
             return amount;
         }).reduce(0, (r, s) -> r + s);
         System.out.println(totalHours);
+    }
+    
+    private static List<Integer> getData() {
+        return Arrays.asList(32, 40, 54, 23, 35, 48, 40, 40, 23, 54, 45, 
+                44, 45, 65, 34, 35, 42, 42, 50, 45, 35, 45, 35, 31, 12, 56);
     }
 }
