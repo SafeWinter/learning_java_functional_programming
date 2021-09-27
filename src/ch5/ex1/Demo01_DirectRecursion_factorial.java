@@ -1,6 +1,6 @@
 package ch5.ex1;
 
-public class Demo01_factorial {
+public class Demo01_DirectRecursion_factorial {
 
     public static void main(String[] args) {
         // Iterative approach
