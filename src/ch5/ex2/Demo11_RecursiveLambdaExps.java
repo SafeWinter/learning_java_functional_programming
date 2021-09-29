@@ -6,7 +6,7 @@ import ch5.ex1.Node;
 
 public class Demo11_RecursiveLambdaExps {
 
-    private static Consumer<Node> inorder;
+    private static Consumer<Node> inorder;  // Instance variable
 
     public static void main(String[] args) {
 
