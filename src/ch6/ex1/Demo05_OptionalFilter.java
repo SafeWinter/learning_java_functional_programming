@@ -1,6 +1,5 @@
 package ch6.ex1;
 
-import java.util.OptionalInt;
 import java.util.stream.IntStream;
 
 public class Demo05_OptionalFilter {
