@@ -2,7 +2,7 @@ package ch6.ex1;
 
 import java.util.Optional;
 
-public class Demo02_OptionalReturnValues {
+public class Demo02_isPresent_get {
 
 	public static void main(String[] args) {
 		

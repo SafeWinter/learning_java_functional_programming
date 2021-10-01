@@ -2,7 +2,7 @@ package ch6.ex1;
 
 import java.util.Optional;
 
-public class Demo01_OptionalInstance {
+public class Demo01_Optional_of_ofNullable {
 
 	public static void main(String[] args) {
 		String animal = "cat";

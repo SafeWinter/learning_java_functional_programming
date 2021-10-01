@@ -1,6 +1,6 @@
 package ch6.ex1;
 
-public class Demo03_ifPresent {
+public class Demo03_orElse_orElseGet_orElseThrow {
 
 	public static void main(String[] args) {
 		

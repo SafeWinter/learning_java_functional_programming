@@ -3,7 +3,7 @@ package ch6.ex1;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-public class Demo04_orElse_orElseGet_orElseThrow {
+public class Demo04_ifPresent {
 
 	public static void main(String[] args) {
 		
