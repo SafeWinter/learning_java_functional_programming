@@ -8,7 +8,6 @@ import ch6.ex1.Customers;
 public class Demo07_OptionalMapCustomer {
 
 	public static void main(String[] args) {
-		Customer defaultCustomer = new Customer(0, "Default");
 		
 		Customers customers = new Customers()
 				.addCustomer(123, new Customer(123, "Sue"))
