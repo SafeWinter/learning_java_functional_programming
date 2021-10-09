@@ -41,7 +41,7 @@ public class Demo08_Optional_lambda_exp {
 			return x;
 		};
 		
-		
+		// several lambda expressions
 		try {
 			id = 789;
 			Customer current1 = customers
@@ -49,16 +49,19 @@ public class Demo08_Optional_lambda_exp {
 					.map(processMary)
 					.map(processNotMary)
 					.orElseThrow(NoCustomerFoundException::new);
+			System.out.println(current1);
 		} catch (NoCustomerFoundException ex) {
 			ex.printStackTrace();
 		}
 		
+		// combined version
 		try {
 			id = 789;
 			Customer current2 = customers
 					.findOptionalCustomerWithID(id)
 					.map(processCustomer)
 					.orElseThrow(NoCustomerFoundException::new);
+			System.out.println(current2);
 		} catch (NoCustomerFoundException ex) {
 			ex.printStackTrace();
 		}
