@@ -40,7 +40,8 @@ public class Demo03_orElse_orElseGet_orElseThrow {
 }
 
 class NoCustomerFoundException extends Exception {
-	public NoCustomerFoundException() { super(); }
+    private static final long serialVersionUID = -4982437475533371532L;
+    public NoCustomerFoundException() { super(); }
 	public NoCustomerFoundException(String errMsg) {
 		super(errMsg);
 	}
