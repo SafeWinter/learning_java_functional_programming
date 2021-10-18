@@ -3,8 +3,6 @@ package ch6.ex3;
 import java.util.Optional;
 import java.util.function.Function;
 
-import javax.security.auth.x500.X500Principal;
-
 public class Demo13_Monad_string {
 	public static void main(String[] args) {
 		Function<? super String, Optional<String>> toConcatString = x -> Optional.of(x + "ing");
