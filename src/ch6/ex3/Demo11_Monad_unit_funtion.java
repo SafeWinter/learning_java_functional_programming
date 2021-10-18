@@ -17,9 +17,10 @@ public class Demo11_Monad_unit_funtion {
 
         
         // Declare a variable to hold the lambda expression
-        Function<? super Integer, Optional<? super Integer>> plusOneFunction =
+        Function<? super Integer, Optional<Integer>> plusOneFunction =
                 n -> Optional.of(n + 1);
-        Optional<Object> plusOne = one.flatMap(plusOneFunction);
+        Optional<Integer> plusOne = one.flatMap(plusOneFunction);
         System.out.println(plusOne.get());
+    	
     }
 }
