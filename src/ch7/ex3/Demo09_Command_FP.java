@@ -14,6 +14,10 @@ public class Demo09_Command_FP {
         fc.addCommand(() -> character.run());
         fc.addCommand(() -> character.jump());
         
+        fc.addCommand(character::walk);
+        fc.addCommand(character::run);
+        fc.addCommand(character::jump);
+        
         fc.executeCommand();
     }
 }
