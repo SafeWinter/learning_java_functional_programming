@@ -6,19 +6,35 @@ import java.util.stream.IntStream;
 
 public class Demo03_ExecuteAround_log_duration {
 
+	// Duration + withLog
 	public static void main(String[] args) {
 		
+		final int value = 5;
+		
+		// Log & execute in one function
 	    Function<Integer, Integer> computeSquare = n -> n * n;
-	    Function<Integer, Integer> computeDuration = 
-	            x -> executeDuration(computeSquare, x);
-	            
-	    Integer[] arr = {1, 2, 3, 4, 5};
-	    Arrays.stream(arr)
-	        .map(computeDuration)
-//	        .map(x->executeDuration(computeSquare, x))
-	        .forEach(System.out::println);
+	    System.out.println(executeWithLog(computeSquare, value));
+	    System.out.println();
+	    
+	    // Duration + log
+	    int result = executeDuration(x -> x * x, value);
+	    System.out.println(withLog(result));
+	    System.out.println();
+	    
+	    // Composition: log + duration & duration + log
+	    System.out.println(withLog(executeDuration(x -> x * x, value)));
+	    System.out.println(executeDuration(x -> x * x, withLog(value)));
 	}
 	
+	private static int withLog(int value) {
+        System.out.print("Operation logged for " + value + " - ");
+        return value;
+    }
+	
+	private static int executeWithLog(Function<Integer, Integer> consumer, int value) {
+		System.out.print("Operation logged for " + value + " - ");
+		return consumer.apply(value);
+	}
 	
     public static int executeDuration(Function<Integer, Integer> computation, int value) {
         long start = System.currentTimeMillis();
@@ -34,5 +50,4 @@ public class Demo03_ExecuteAround_log_duration {
         System.out.print("Duration: " + duration + " - ");
         return result;
     }
-	
 }

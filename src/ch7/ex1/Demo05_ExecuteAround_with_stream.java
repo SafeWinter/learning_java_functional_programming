@@ -1,39 +1,35 @@
 package ch7.ex1;
 
+import java.util.Arrays;
 import java.util.function.Function;
 
 public class Demo05_ExecuteAround_with_stream {
 
-	public static void main(String[] args) {
-		Function<Integer, Integer> computeSquare = x -> x * x;
-		System.out.println("---executeBefore");
-		System.out.println(executeBefore(Demo05_ExecuteAround_with_stream::withLog, computeSquare, 5));
+public static void main(String[] args) {
 		
-		System.out.println("---executeAfter");
-		System.out.println(executeAfter(computeSquare, Demo05_ExecuteAround_with_stream::withLog, 5));
+	    Function<Integer, Integer> computeSquare = n -> n * n;
+	    Function<Integer, Integer> computeDuration = x -> executeDuration(computeSquare, x);
+	            
+	    Integer[] arr = {1, 2, 3, 4, 5};
+	    Arrays.stream(arr)
+	        .map(computeDuration)
+//	        .map(x->executeDuration(computeSquare, x))
+	        .forEach(System.out::println);
 	}
 	
-	private static int withLog(int value) {
-        System.out.print("Operation logged for " + value + " - ");
-        return value;
+	
+    public static int executeDuration(Function<Integer, Integer> computation, int value) {
+        long start = System.currentTimeMillis();
+        int result = 0;
+        try {
+            result = computation.apply(value);
+            Thread.sleep(500);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+        long end = System.currentTimeMillis();
+        long duration = end - start;
+        System.out.print("Duration: " + duration + " - ");
+        return result;
     }
-
-	private static Integer executeBefore(
-	    Function<Integer, Integer> before,
-	    Function<Integer, Integer> compute,
-	    Integer value
-	) {
-	    before.apply(value);
-	    return compute.apply(value);
-	}
-    
-	private static Integer executeAfter(
-	    Function<Integer, Integer> compute,
-	    Function<Integer, Integer> after,
-	    Integer value
-	) {
-	    Integer result = compute.apply(value);
-	    after.apply(result);
-	    return result;
-	}
 }
