@@ -1,8 +1,6 @@
 package ch7.ex1;
 
-import java.util.Arrays;
 import java.util.function.Function;
-import java.util.stream.IntStream;
 
 public class Demo03_ExecuteAround_log_duration {
 
