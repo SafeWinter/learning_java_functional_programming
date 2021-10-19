@@ -8,15 +8,6 @@ import java.util.List;
 public class Demo11_Strategy_FP {
 	
 	public static void main(String[] args) {
-		Comparator<? super Task> compareDuration = Comparator.comparing(Task::getDuration);
-		
-		FunctionalStrategy longest = 
-				t -> t.stream().max(compareDuration).get();
-		
-		FunctionalStrategy shortest = 
-				t -> t.stream().min(compareDuration).get();
-		
-		FunctionalStrategy firstComeFirstServe = t -> t.get(0);
 		
 		Task tasks[] = {
 			new Task("Quick",25), 
@@ -28,13 +19,21 @@ public class Demo11_Strategy_FP {
 		FunctionalTasks ts = new FunctionalTasks();
 		ts.setTasks(Arrays.asList(tasks));
 		
+		Comparator<? super Task> compareDuration = Comparator.comparing(Task::getDuration);
+		
+		// longest-task-first strategy
+		FunctionalStrategy longest = tlist -> tlist.stream().max(compareDuration).get();
 		ts.setStrategy(longest);
 		System.out.println(ts.getNextTask());
 		
+		// shortest-task-first strategy
+		FunctionalStrategy shortest = tlist -> tlist.stream().min(compareDuration).get();
 		ts.setStrategy(shortest);
 		System.out.println(ts.getNextTask());
 		
-		ts.setStrategy(firstComeFirstServe);
+		// first-come-first-serve strategy
+		FunctionalStrategy fcfs = tlist -> tlist.get(0);
+		ts.setStrategy(fcfs);
 		System.out.println(ts.getNextTask());
 	}
 }
