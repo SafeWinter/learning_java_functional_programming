@@ -47,11 +47,12 @@ class Scene1 implements ISceneElement1 {
 		this.name = name;
 		BuildingElement1 building = () -> "Tool Shed";
 		PlantElement1 plant = () -> "Oak Tree";
+		ISceneElement1 element = () -> "Lawn";
 		this.elements = new ISceneElement1[]{
 			building,
 			() -> "Brick House",
 			plant,
-			() -> "Lawn"
+			element
 		};
 	}
 
