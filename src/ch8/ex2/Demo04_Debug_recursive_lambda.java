@@ -1,7 +1,5 @@
 package ch8.ex2;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.function.Consumer;
 
 public class Demo04_Debug_recursive_lambda {
