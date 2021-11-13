@@ -17,6 +17,10 @@ public class Character {
     public boolean pickup(Command command) {
         try {
             List<String> itemNames = command.getArguments();
+            if(itemNames.isEmpty()) {
+                System.out.println("Pick up what?");
+                return false;
+            }
             itemNames.stream()
                 .filter(itemName -> {
                     if(this.location.getItems().contains(itemName)) {
@@ -60,7 +64,7 @@ public class Character {
         List<Boolean> results = new ArrayList<>();
         itemNames.stream()
             .map(itemName -> {
-                boolean droppable = this.items.contains(itemName);
+                boolean droppable = this.items.remove(itemName);
                 results.clear();
                 results.add(droppable);
                 if(droppable) {
