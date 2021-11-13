@@ -142,15 +142,13 @@ public class FunctionalZork {
 
     private void parseCommandStream(Stream<String> tokens) {
         this.command.clear();
-        tokens.map(token -> {
+        tokens.forEach(token -> {
             if(commands.containsKey(token)) {
                 this.command.setCommand(token);
             } else {
                 this.command.addArgument(token);
             }
-            return token;
-        })
-        .allMatch(token -> !"quit".equalsIgnoreCase(token));
+        });
     }
 
     private Stream<String> getCommandStream() {
