@@ -6,6 +6,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -68,7 +70,9 @@ public class FunctionalZork {
 
     private void initializeData() {
         System.out.println("Welcome to Functional Zork!\n");
-        File file = new File("src/ch9/ex2/data.txt");
+//        File file = new File("src/ch9/ex2/data.txt");
+        Path path = Paths.get("src/ch9/ex2", "data.txt");
+        File file = path.toFile();
         try(FileInputStream fis = new FileInputStream(file);
                 BufferedReader br = new BufferedReader(new InputStreamReader(fis))
         ){
