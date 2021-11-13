@@ -52,16 +52,16 @@ public class Character {
 //                    })
 //                    .forEach(System.out::println);
 
-                for (String itemName : arguments) {
-                    droppedItem = items.remove(itemName);
-                    if (droppedItem) {
-                        this.location.addItem(itemName);
-                        System.out.println("Dropping " + itemName);
-                        droppedItem = true;
-                    } else {
-                        System.out.println("Cannot drop " + itemName);
-                    }
+            for (String itemName : arguments) {
+                droppedItem = items.remove(itemName);
+                if (droppedItem) {
+                    this.location.addItem(itemName);
+                    System.out.println("Dropping " + itemName);
+                    droppedItem = true;
+                } else {
+                    System.out.println("Cannot drop " + itemName);
                 }
+            }
             return droppedItem;
         }
     }
